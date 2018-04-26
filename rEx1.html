@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>React First Exmaple!!</title>
+  
+
+  <script src="file:///Users/s.shah/Documents/GitHub/ReduxSimpleStarter/node_modules/react/dist/react.min.js"></script>
+  <script type="text/javascript" src="file:///Users/s.shah/Documents/GitHub/ReduxSimpleStarter/node_modules/react-dom/dist/react-dom.min.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+  <style type="text/css">
+  	h1 {font-size: 20px; color: #d8d8d8; font-family: sans-serif;}
+  	button{background: red; padding: 10px; color: white;}
+  </style>
+</head>
+<body>
+	<div id="output"></div>
+	<script type="text/babel">
+
+	var destination =  document.querySelector("#output");
+
+	class HelloWorld extends React.Component {
+		render() {
+			return <h1>Hello, {this.props.person}!</h1>
+		}
+	}
+
+	class Buttonify extends React.Component {
+		render() {
+			return (
+				<div>
+					<button type="{this.props.behavior}">{this.props.children}</button>
+				</div>
+			);
+		}
+	}
+
+	ReactDOM.render(
+	  <div>
+	  	<HelloWorld person = "saloni"/>
+	  	<HelloWorld person = "Heta"/>
+	  	<HelloWorld person = "Dhara" />
+
+	  	<Buttonify behavior="Submit">Send Data</Buttonify>
+	  </div>,
+	  destination
+	);
+	</script>
+</body>
+</html>
