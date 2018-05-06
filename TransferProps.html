@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Transfering Props Example</title>
+
+	<script src="file:///Users/s.shah/Documents/GitHub/ReduxSimpleStarter/node_modules/react/dist/react.min.js"></script>
+    <script type="text/javascript" src="file:///Users/s.shah/Documents/GitHub/ReduxSimpleStarter/node_modules/react-dom/dist/react-dom.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+	<div id="container"></div>
+
+
+	<script type="text/babel">
+		var destination = document.querySelector("#container");
+
+		class Display extends React.Component {
+		  render() {
+		    return (
+		      <div>
+		        <p>{this.props.color}</p>
+		        <p>{this.props.num}</p>
+		        <p>{this.props.size}</p>
+		      </div>
+		    );
+		  }
+		}
+		 
+		class Label extends React.Component {
+		  render() {
+		    return (
+		      <Display {...this.props} />
+		    );
+		  }
+		}
+		 
+		class Shirt extends React.Component {
+		  render() {
+		    return (
+		      <div>
+		        <Label {...this.props} />
+		      </div>
+		    );
+		  }
+		}
+		 
+		ReactDOM.render(
+		  <div>
+		    <Shirt color="green" num="3.14" size="medium" />
+		  </div>,
+		  document.querySelector("#container")
+		);
+	</script>
+
+</body>
+</html>
