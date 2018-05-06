@@ -42,9 +42,11 @@
 
     var renderData = [];
 
-    for(var i = 0; i < colors.length; i++) {
-    	renderData.push(<Circle key={i + colors[i]} bgcolor={colors[i]}/>);
+    for (var i = 0; i < colors.length; i++) {
+	  var color = colors[i];
+	  renderData.push(<Circle key={i + color} bgColor={color}/>);
 	}
+
 
     ReactDOM.render(
       <div>
